@@ -15,7 +15,6 @@ Below is a copy-paste of an overview of the stuff I added/changed:
 - On exit, vim saves where you were in the file and comes back there when you open it again.
 - Vim now scrolls down as long as you are within 7 rows of the bottom of the screen.
 - Tab length is set to 4.
-- ~~You can undo things even after closing file. I think you can anyway.~~
 
 ## Here are things that were added within the vimrc.
 - Leader key is bound to `,`.
@@ -34,7 +33,7 @@ Below is a copy-paste of an overview of the stuff I added/changed:
 ## Here are things related to tabs and windows.
 - `Ctrl + n` open a new tab.
 - `Ctrl + left/right arrow key` switches to the next tab in that direction.
-- `Alt + arrow key` moves your cursor to the window which is in that direction.
+- `<Leader> + arrow key` moves your cursor to the window which is in that direction.
 - `Ctrl + w + number + < or >` increases or decreases window size by number characters.
 
 ## Here are things related to installed addons
@@ -48,5 +47,5 @@ Below is a copy-paste of an overview of the stuff I added/changed:
 - `Ctrl + f` opens up a window which allows you to fuzzy search for files. 
 - `Ctrl + y` while in Ctrl + f mode creates the file with the name you typed in.
 - `gc` while selecting something comments out all selected lines. Works across just about all languages.
-- `,a` goes to the next ALE error.
-- `<Leader> ww` selects a window. Switching to another window and doing `<Leader> ww` again swaps the windows places.
+- `<Leader> + a` goes to the next ALE error.
+- `<Leader> + ww` selects a window. Switching to another window and doing `<Leader> ww` again swaps the windows places.

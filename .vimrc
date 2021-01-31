@@ -105,7 +105,7 @@
 "" Here are things related to tabs and windows. Very important to remember these.
 " `Ctrl + n` open a new tab.
 " `Ctrl + left/right arrow key` switches to the next tab in that direction.
-" `Alt + arrow key` moves your cursor to the window which is in that direction.
+" `Leader + arrow key` moves your cursor to the window which is in that direction.
 " `Ctrl + w + number + < or >` increases or decreases window size by number characters.
 
 "" Here are things related to installed addons
@@ -161,6 +161,8 @@ endif
 
 " Fast saving
 nmap <leader>w :w!<cr>
+
+let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-python', 'coc-sql', 'coc-html', 'coc-clangd']
 
 " Run make and save output
 " nmap <C-S> :make | copen<CR>
@@ -290,7 +292,6 @@ endwhile
 " Remap VIM 0 to first non-blank character
 map 0 ^
 
-
 " Better tab management
 map <C-Left> <Esc>:tabprev<CR>
 map <C-Right> <Esc>:tabnext<CR>
@@ -412,10 +413,10 @@ cnoreabbrev Z TagbarTogglePause
 cnoreabbrev m Make
 
 " Easy window switching
-nmap <silent> <A-Up> :wincmd k<CR>
-nmap <silent> <A-Down> :wincmd j<CR>
-nmap <silent> <A-Left> :wincmd h<CR>
-nmap <silent> <A-Right> :wincmd l<CR>
+nmap <silent> <leader><Up> :wincmd k<CR>
+nmap <silent> <leader><Down> :wincmd j<CR>
+nmap <silent> <leader><Left> :wincmd h<CR>
+nmap <silent> <leader><Right> :wincmd l<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Ale (syntax checker and linter)
