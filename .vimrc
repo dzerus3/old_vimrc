@@ -129,6 +129,8 @@ syntax on
 
 " Set line numbers
 set number
+"...but not in text files
+au BufReadPost,BufNewFile *.md,*.txt,*.tex set nonumber
 
 " :W saves with sudo
 command W w !sudo tee "%" > /dev/null
