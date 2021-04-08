@@ -74,6 +74,16 @@
 " `:Make` or `:m` calls make without exiting vim.
 " `gc` while selecting something comments out all selected lines.
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" nvim edits
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+if has('nvim')
+    " Resets normal cursor shape
+    set guicursor=
+
+    set runtimepath^=~/.vim runtimepath+=~/.vim/after
+    let &packpath = &runtimepath
+endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Starts pathogen
@@ -186,9 +196,11 @@ set showmatch
 
 " Set line numbers
 set number
+set relativenumber
 
 "...but not in text files
-au BufReadPost,BufNewFile *.md,*.txt,*.tex set nonumber
+au bufreadpost,bufnewfile *.md,*.txt,*.tex set nonumber
+au bufreadpost,bufnewfile *.md,*.txt,*.tex set norelativenumber
 
 " Enable yanking between windows
 set clipboard=unnamed
