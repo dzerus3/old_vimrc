@@ -74,6 +74,12 @@
 " `:Make` or `:m` calls make without exiting vim.
 " `gc` while selecting something comments out all selected lines.
 
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Starts pathogen
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+execute pathogen#infect()
+"
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " nvim edits
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -84,11 +90,6 @@ if has('nvim')
     set runtimepath^=~/.vim runtimepath+=~/.vim/after
     let &packpath = &runtimepath
 endif
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Starts pathogen
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-execute pathogen#infect()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Leader key
@@ -107,6 +108,12 @@ nnoremap o l|xnoremap o l|onoremap o l|vnoremap o l
 
 " Insert mode now bound to t
 nnoremap t i
+nnoremap T I
+
+" E and I function like PageUp/Down
+nnoremap E <C-f>
+nnoremap I <C-b>
+
 
 " s is now at j
 nnoremap j s|xnoremap j s|onoremap j s|
@@ -138,7 +145,14 @@ map <silent> <C-D> "_dd
 vnoremap <silent> <C-D> "_d
  
 " This removes last search highlighting by hitting return
-nnoremap <CR> :noh<CR><CR>
+nnoremap <CR> <silent> :noh<CR><CR>
+
+" Ctrl + k creates newline with insert mode
+nnoremap <C-K> o|xnoremap <C-K> o|onoremap <C-K> o|
+
+" ge and gi move between wrapped long line
+nnoremap ge gj
+nnoremap gi gk
 
 " Ctrl + left/right = move forward by one word
 nnoremap <C-n> b|xnoremap <C-n> b|onoremap <C-n> b|
@@ -163,6 +177,12 @@ nmap <silent> <leader><Up> :wincmd k<CR>
 nmap <silent> <leader><Down> :wincmd j<CR>
 nmap <silent> <leader><Left> :wincmd h<CR>
 nmap <silent> <leader><Right> :wincmd l<CR>
+
+" Better tab management
+nmap <C-Left> <Esc>:tabprev<CR>
+nmap <C-Right> <Esc>:tabnext<CR>
+nmap <C-Up> <Esc>:tabnew<CR>
+nmap <C-Down> <Esc>:q<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Settings
@@ -199,8 +219,8 @@ set number
 set relativenumber
 
 "...but not in text files
-au bufreadpost,bufnewfile *.md,*.txt,*.tex set nonumber
-au bufreadpost,bufnewfile *.md,*.txt,*.tex set norelativenumber
+au BufReadPost,BufNewFile *.md,*.txt,*.tex set nonumber
+au BufReadPost,BufNewFile *.md,*.txt,*.tex set norelativenumber
 
 " Enable yanking between windows
 set clipboard=unnamed
